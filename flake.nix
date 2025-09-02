@@ -10,7 +10,7 @@
       system = "x86_64-linux";
     in
     let
-      pkgs = import nixpkgs { 
+      pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
@@ -38,12 +38,10 @@
         ];
         shellHook = ''
           export NIX_DEV_SHELL_NAME=mlp
+          export PATH=$PATH:$PWD/mlinphysics/bin
+          export PYTHONPATH=$PWD
           export SHELL=${pkgs.zsh}/bin/zsh
           exec ${pkgs.zsh}/bin/zsh --login
-          echo "Creating mlp dev shell..."
-          echo "Sourcing mlinphysics..."
-          source mlinphysics/setup.sh
-          echo "mlp dev shell ready"
         '';
       };
     };
