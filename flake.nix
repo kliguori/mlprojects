@@ -28,6 +28,7 @@
 
           # Not always in collections; add explicitly:
           tikz-feynman
+          dvipng
           ;
       };
     in
